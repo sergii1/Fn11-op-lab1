@@ -2,12 +2,12 @@
 #include <iostream>
 
 struct Node {
-    //id узла
+    //id СѓР·Р»Р°
     unsigned m_ID;
     double m_X1;
     double m_X2;
     double m_X3;
-    //является ли вершиной или внутренним узлом
+    //СЏРІР»СЏРµС‚СЃСЏ Р»Рё РІРµСЂС€РёРЅРѕР№ РёР»Рё РІРЅСѓС‚СЂРµРЅРЅРёРј СѓР·Р»РѕРј
     bool is_Vertex;
 
     Node() = default;
@@ -20,28 +20,28 @@ struct Node {
     }
 
     friend std::ostream &operator<<(std::ostream &p_Out, const Node &p_Node) {
-        p_Out << "ID узла - " << p_Node.m_ID << std::endl;
+        p_Out << "ID СѓР·Р»Р° - " << p_Node.m_ID << std::endl;
         p_Out << "X1 - " << p_Node.m_X1 << std::endl;
         p_Out << "X2 - " << p_Node.m_X2 << std::endl;
         p_Out << "X3 - " << p_Node.m_X3 << std::endl;
-        //if (p_Node.is_Vertex) p_Out << "Является вершиной КЭ" << std::endl;
-        //else p_Out << "Является внутренним узлом КЭ" << std::endl;
+        //if (p_Node.is_Vertex) p_Out << "РЇРІР»СЏРµС‚СЃСЏ РІРµСЂС€РёРЅРѕР№ РљР­" << std::endl;
+        //else p_Out << "РЇРІР»СЏРµС‚СЃСЏ РІРЅСѓС‚СЂРµРЅРЅРёРј СѓР·Р»РѕРј РљР­" << std::endl;
         return p_Out;
     }
 };
 
 struct FiniteElement {
-    //id конечного элемента
+    //id РєРѕРЅРµС‡РЅРѕРіРѕ СЌР»РµРјРµРЅС‚Р°
     unsigned m_ID;
-    //id типа материала
+    //id С‚РёРїР° РјР°С‚РµСЂРёР°Р»Р°
     unsigned m_IDType;
-    //список id узлов конечного элемента
+    //СЃРїРёСЃРѕРє id СѓР·Р»РѕРІ РєРѕРЅРµС‡РЅРѕРіРѕ СЌР»РµРјРµРЅС‚Р°
     std::vector<unsigned> m_NodeIDs;
 
     friend std::ostream &operator<<(std::ostream &p_Out, const FiniteElement &p_FE) {
-        p_Out << "ID КЭ - " << p_FE.m_ID << std::endl;
-        p_Out << "ID материала - " << p_FE.m_IDType << std::endl;
-        p_Out << "ID узлов КЭ : ";
+        p_Out << "ID РљР­ - " << p_FE.m_ID << std::endl;
+        p_Out << "ID РјР°С‚РµСЂРёР°Р»Р° - " << p_FE.m_IDType << std::endl;
+        p_Out << "ID СѓР·Р»РѕРІ РљР­ : ";
         std::copy(p_FE.m_NodeIDs.begin(), p_FE.m_NodeIDs.end(), std::ostream_iterator<int>(p_Out, " "));
         p_Out << std::endl;
         return p_Out;
@@ -49,17 +49,17 @@ struct FiniteElement {
 };
 
 struct BoundaryFiniteElement {
-    //id граничного конечного элемента
+    //id РіСЂР°РЅРёС‡РЅРѕРіРѕ РєРѕРЅРµС‡РЅРѕРіРѕ СЌР»РµРјРµРЅС‚Р°
     unsigned m_ID;
-    //id границы
+    //id РіСЂР°РЅРёС†С‹
     unsigned m_IDBoundary;
-    //список id узлов граничного конечного элемента
+    //СЃРїРёСЃРѕРє id СѓР·Р»РѕРІ РіСЂР°РЅРёС‡РЅРѕРіРѕ РєРѕРЅРµС‡РЅРѕРіРѕ СЌР»РµРјРµРЅС‚Р°
     std::vector<unsigned> m_NodeIDs;
 
     friend std::ostream &operator<<(std::ostream &p_Out, const BoundaryFiniteElement &p_SFE) {
-        p_Out << "ID поверхностного КЭ - " << p_SFE.m_ID << std::endl;
-        p_Out << "ID поверхности - " << p_SFE.m_IDBoundary << std::endl;
-        p_Out << "ID узлов поверхностного КЭ : ";
+        p_Out << "ID РїРѕРІРµСЂС…РЅРѕСЃС‚РЅРѕРіРѕ РљР­ - " << p_SFE.m_ID << std::endl;
+        p_Out << "ID РїРѕРІРµСЂС…РЅРѕСЃС‚Рё - " << p_SFE.m_IDBoundary << std::endl;
+        p_Out << "ID СѓР·Р»РѕРІ РїРѕРІРµСЂС…РЅРѕСЃС‚РЅРѕРіРѕ РљР­ : ";
         std::copy(p_SFE.m_NodeIDs.begin(), p_SFE.m_NodeIDs.end(), std::ostream_iterator<int>(p_Out, " "));
         p_Out << std::endl;
         return p_Out;
@@ -67,11 +67,11 @@ struct BoundaryFiniteElement {
 };
 
 struct Edge {
-    //id узла начала ребра
+    //id СѓР·Р»Р° РЅР°С‡Р°Р»Р° СЂРµР±СЂР°
     unsigned FirstNode_ID;
-    //id узла конца ребра
+    //id СѓР·Р»Р° РєРѕРЅС†Р° СЂРµР±СЂР°
     unsigned LastNode_ID;
-    //id узла центра ребра
+    //id СѓР·Р»Р° С†РµРЅС‚СЂР° СЂРµР±СЂР°
     unsigned Center_ID;
 
     Edge(unsigned p_ID1, unsigned p_ID2, unsigned p_ID3) : FirstNode_ID(p_ID1), LastNode_ID(p_ID2), Center_ID(p_ID3) {}

@@ -140,7 +140,7 @@ void cls_MeshLoader::Transform_to_Quadratic() {
                 Edge current_edge(i, j, 0);
                 auto FoundedEdge = std::find(Edges.begin(), Edges.end(), current_edge);
                 if (FoundedEdge == Edges.end()) {
-                    //åñëè ğàíåå ğåáğî íå âñòğå÷àëîñü, ñäåëàòü íîâûé öåíòğàëüíûé óçåë äëÿ ıòîãî ğåáğà...
+                    //ĞµÑĞ»Ğ¸ Ñ€Ğ°Ğ½ĞµĞµ Ñ€ĞµĞ±Ñ€Ğ¾ Ğ½Ğµ Ğ²ÑÑ‚Ñ€ĞµÑ‡Ğ°Ğ»Ğ¾ÑÑŒ, ÑĞ´ĞµĞ»Ğ°Ñ‚ÑŒ Ğ½Ğ¾Ğ²Ñ‹Ğ¹ Ñ†ĞµĞ½Ñ‚Ñ€Ğ°Ğ»ÑŒĞ½Ñ‹Ğ¹ ÑƒĞ·ĞµĞ» Ğ´Ğ»Ñ ÑÑ‚Ğ¾Ğ³Ğ¾ Ñ€ĞµĞ±Ñ€Ğ°...
                     Node LeftNode;
                     LeftNode = m_Nodes[i];
                     Node RightNode = m_Nodes[j];
@@ -152,7 +152,7 @@ void cls_MeshLoader::Transform_to_Quadratic() {
                     Edges.insert(current_edge);
                     IT.m_NodeIDs.push_back(Center_ID);
                 } else {
-                    // åñëè ğàíåå ğåáğî âñòğå÷àëîñü, ïîëó÷èòü èäåíòèôèêàòîğ óçëà öåíòğà
+                    // ĞµÑĞ»Ğ¸ Ñ€Ğ°Ğ½ĞµĞµ Ñ€ĞµĞ±Ñ€Ğ¾ Ğ²ÑÑ‚Ñ€ĞµÑ‡Ğ°Ğ»Ğ¾ÑÑŒ, Ğ¿Ğ¾Ğ»ÑƒÑ‡Ğ¸Ñ‚ÑŒ Ğ¸Ğ´ĞµĞ½Ñ‚Ğ¸Ñ„Ğ¸ĞºĞ°Ñ‚Ğ¾Ñ€ ÑƒĞ·Ğ»Ğ° Ñ†ĞµĞ½Ñ‚Ñ€Ğ°
                     IT.m_NodeIDs.push_back(FoundedEdge->Center_ID);
                 }
             }
